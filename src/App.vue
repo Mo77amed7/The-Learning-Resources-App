@@ -1,14 +1,16 @@
 <template>
+  <the-header title="RememberMe"></the-header>
   <stored-resources :resources="resources"></stored-resources>
 </template>
 
 <script>
 import StoredResources from "./components/learning-resources/StoredResources.vue";
-
+import TheHeader from "./components/Layout/TheHeader.vue";
 export default {
   name: "App",
   components: {
     StoredResources,
+    TheHeader,
   },
   data() {
     return {
@@ -38,7 +40,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 * {
   box-sizing: border-box;
