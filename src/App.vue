@@ -43,6 +43,7 @@ export default {
 }
 * {
   box-sizing: border-box;
+  outline: none;
 }
 body {
   margin: 0;
