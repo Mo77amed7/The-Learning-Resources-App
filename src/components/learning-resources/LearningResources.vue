@@ -24,8 +24,8 @@ export default {
 <style scoped>
 li {
   list-style-type: none;
-  width: 80%;
-  padding: 15px;
+  margin: 10px 0;
+  width: 100%;
 }
 header {
   display: flex;

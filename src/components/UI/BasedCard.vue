@@ -13,7 +13,8 @@ div {
   border: 1px solid #eee;
   border-radius: 8px;
   padding: 16px;
-  margin: 16px 0;
+  margin: 16px auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 60%;
 }
 </style>

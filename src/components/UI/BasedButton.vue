@@ -22,7 +22,7 @@ button {
   background: transparent;
   border: none;
   color: #8b005d;
-  padding: 0;
+  padding: 10px 20px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -36,7 +36,6 @@ button.flat {
   border: 1px solid #8b005d;
   background: #8b005d;
   color: white;
-  padding: 10px 20px;
 }
 button.flat:hover,
 button.flat:active {
