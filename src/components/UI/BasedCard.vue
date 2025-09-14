@@ -1,0 +1,19 @@
+<template>
+  <div>
+    <slot></slot>
+  </div>
+</template>
+<script>
+export default {
+  name: "BasedCard",
+};
+</script>
+<style scoped>
+div {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+</style>

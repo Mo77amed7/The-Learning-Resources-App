@@ -24,7 +24,6 @@ export default {
 <style scoped>
 ul {
   padding: 0px;
-  list-style-type: none;
   margin: 0px;
   display: flex;
   flex-direction: column;

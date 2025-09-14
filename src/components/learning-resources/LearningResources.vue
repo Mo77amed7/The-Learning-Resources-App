@@ -1,6 +1,6 @@
 <template>
   <li>
-    <div>
+    <based-card>
       <header>
         <h2>{{ title }}</h2>
         <span>Delete</span>
@@ -8,8 +8,9 @@
       <section>
         <p>{{ description }}</p>
         <a :href="link">View Resource</a>
+        <div class="clear"></div>
       </section>
-    </div>
+    </based-card>
   </li>
 </template>
 <script>
@@ -24,10 +25,7 @@ export default {
 li {
   list-style-type: none;
   width: 80%;
-  box-shadow: -1px -1px 10px 1px #efefef, 1px 1px 10px 1px #efefef;
   padding: 15px;
-  margin: 10px 0px;
-  border-radius: 6px;
 }
 header {
   display: flex;
@@ -40,6 +38,11 @@ h2 {
 span {
   display: block;
   cursor: pointer;
+  color: indianred;
+}
+a:hover,
+span:hover {
+  text-decoration: underline;
 }
 p {
   text-align: left;
@@ -49,5 +52,8 @@ a {
   float: left;
   cursor: pointer;
   color: indianred;
+}
+.clear {
+  clear: both;
 }
 </style>
