@@ -11,7 +11,9 @@
       >Add Resources</based-button
     >
   </based-card>
-  <component :is="selectedTab" :resources="resources"></component>
+  <keep-alive>
+    <component :is="selectedTab" :resources="resources"></component>
+  </keep-alive>
 </template>
 <script>
 import StoredResources from "./StoredResources.vue";
@@ -44,6 +46,16 @@ export default {
     selectTab(tab) {
       this.selectedTab = tab;
     },
+    addResource(title, link, description) {
+      const newResource = {
+        id: title.toLowerCase().replace(/ /g, "-"),
+        title: title,
+        link: link,
+        description: description,
+      };
+      this.resources.push(newResource);
+      this.selectedTab = "stored-resources";
+    },
   },
   computed: {
     selectMode() {
@@ -55,6 +67,7 @@ export default {
   provide() {
     return {
       resources: this.resources,
+      addResource: this.addResource,
     };
   },
 };

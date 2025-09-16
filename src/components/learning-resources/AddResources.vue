@@ -1,26 +1,35 @@
 <template>
   <based-card>
-    <form action="">
+    <form action="" @submit.prevent="submitData">
       <div>
         <label for="title">Title</label>
-        <input type="text" id="title" />
+        <input type="text" id="title" ref="titleInput" />
       </div>
       <div>
         <label for="link">Link</label>
-        <input type="text" id="link" />
+        <input type="text" id="link" ref="linkInput" />
       </div>
       <div>
         <label for="description">Description</label>
-        <textarea rows="5" id="description"></textarea>
+        <textarea rows="5" id="description" ref="descriptionInput"></textarea>
       </div>
-      <based-button mode="flat">Add Resource</based-button>
+      <based-button mode="flat" type="submit">Add Resource</based-button>
     </form>
   </based-card>
 </template>
 <script>
 export default {
+  inject: ["addResource"],
   data() {
     return {};
+  },
+  methods: {
+    submitData() {
+      const title = this.$refs.titleInput.value;
+      const link = this.$refs.linkInput.value;
+      const description = this.$refs.descriptionInput.value;
+      this.addResource(title, link, description);
+    },
   },
 };
 </script>
