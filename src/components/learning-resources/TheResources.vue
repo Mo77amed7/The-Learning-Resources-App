@@ -23,6 +23,13 @@ export default {
     StoredResources,
     AddResources,
   },
+  provide() {
+    return {
+      resources: this.resources,
+      addResource: this.addResource,
+      deleteResource: this.deleteResource,
+    };
+  },
   data() {
     return {
       selectedTab: "stored-resources",
@@ -56,6 +63,13 @@ export default {
       this.resources.push(newResource);
       this.selectedTab = "stored-resources";
     },
+    deleteResource(id) {
+      const index = this.resources.findIndex((res) => res.id === id);
+      if (index === -1) {
+        return;
+      }
+      this.resources.splice(index, 1);
+    },
   },
   computed: {
     selectMode() {
@@ -63,12 +77,6 @@ export default {
         return this.selectedTab === tab ? "flat" : "null";
       };
     },
-  },
-  provide() {
-    return {
-      resources: this.resources,
-      addResource: this.addResource,
-    };
   },
 };
 </script>

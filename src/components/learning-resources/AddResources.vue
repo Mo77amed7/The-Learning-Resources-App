@@ -16,18 +16,49 @@
       <based-button mode="flat" type="submit">Add Resource</based-button>
     </form>
   </based-card>
+  <based-dialog v-if="invalidInput" @close="invalidInput = false">
+    <template #header>
+      <h2>Invalid input</h2>
+    </template>
+    <template #body>
+      <p>
+        Please enter a valid title, link and description (non-empty values).
+      </p>
+    </template>
+    <template #footer>
+      <based-button mode="flat" @click="invalidInput = false"
+        >Okay</based-button
+      >
+    </template>
+  </based-dialog>
 </template>
 <script>
 export default {
   inject: ["addResource"],
   data() {
-    return {};
+    return {
+      invalidInput: false,
+    };
+  },
+  props: {
+    resources: {
+      type: Array,
+      required: true,
+    },
   },
   methods: {
     submitData() {
       const title = this.$refs.titleInput.value;
       const link = this.$refs.linkInput.value;
       const description = this.$refs.descriptionInput.value;
+      if (
+        title.trim() === "" ||
+        link.trim() === "" ||
+        description.trim() === ""
+      ) {
+        this.invalidInput = true;
+        return;
+      }
       this.addResource(title, link, description);
     },
   },
